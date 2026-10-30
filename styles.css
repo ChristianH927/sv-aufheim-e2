@@ -145,10 +145,10 @@ h1, h2, h3, p { margin-top:0; }
 .closing-strip strong em { font-style:normal; color:#9e1e31; }
 .closing-strip a { margin-left:auto; text-decoration:none; padding:11px 13px; border:1px solid rgba(9,43,70,.25); border-radius:7px; font-size:10px; font-weight:900; white-space:nowrap; }
 .closing-strip a:hover { background:rgba(255,255,255,.16); }
-.sponsor-strip { display:flex; justify-content:flex-end; margin:-19px 0 34px; }
-.sponsor-card { width:231px; padding:11px 12px 12px; background:white; border:1px solid #e7e0d4; border-radius:12px; box-shadow:0 7px 22px rgba(20,20,20,.035); }
-.sponsor-label { display:block; font-size:9px; line-height:1.4; font-weight:900; color:#9d2739; letter-spacing:1.7px; margin-bottom:6px; }
-.sponsor-image { display:block; width:100%; height:176px; object-fit:cover; object-position:center 49%; border-radius:7px; background:white; }
+.sponsor-strip { position:fixed; z-index:10; right:max(12px,env(safe-area-inset-right)); bottom:max(12px,env(safe-area-inset-bottom)); margin:0; pointer-events:none; }
+.sponsor-card { width:176px; padding:9px 10px 10px; background:rgba(255,255,255,.98); border:1px solid #e7e0d4; border-radius:12px; box-shadow:0 8px 28px rgba(20,20,20,.18); }
+.sponsor-label { display:block; font-size:8px; line-height:1.4; font-weight:900; color:#9d2739; letter-spacing:1.5px; margin-bottom:5px; }
+.sponsor-image { display:block; width:100%; height:139px; object-fit:cover; object-position:center 49%; border-radius:7px; background:white; }
 .site-footer { display:flex; align-items:center; gap:20px; border-top:1px solid #e1dcd2; padding:24px 0 42px; }
 .footer-brand { display:flex; align-items:center; gap:9px; }
 .footer-circle { width:34px; height:34px; object-fit:contain; background:#080808; border-radius:50%; }
@@ -229,9 +229,9 @@ h1, h2, h3, p { margin-top:0; }
   .closing-ball { width:36px; height:36px; }
   .closing-strip strong { font-size:22px; }
   .closing-strip a { display:none; }
-  .sponsor-strip { margin:-10px 0 25px; }
-  .sponsor-card { width:204px; padding:10px; }
-  .sponsor-image { height:162px; }
+  .sponsor-card { width:122px; padding:7px; border-radius:9px; }
+  .sponsor-label { font-size:7px; letter-spacing:.9px; margin-bottom:3px; }
+  .sponsor-image { height:105px; border-radius:5px; }
   .site-footer { display:grid; grid-template-columns:1fr auto; row-gap:18px; padding-bottom:28px; }
   .site-footer p { grid-row:2; grid-column:1/-1; margin:0; }
 }
