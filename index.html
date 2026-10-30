@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#092b46" />
+    <meta name="description" content="Inoffizielles mobiles Team-Dashboard der SV Aufheim E2 mit Tabelle, Ergebnissen und Spielterminen." />
+    <meta property="og:title" content="SV Aufheim E2 – Team-Dashboard" />
+    <meta property="og:description" content="Tabelle, Ergebnisse und nächste Spiele auf einen Blick." />
+    <title>SV Aufheim E2 · Team-Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="data.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar" aria-label="Hauptnavigation">
+        <a class="brand" href="#start" aria-label="Aufheim E2 – zum Anfang">
+          <span class="crest" aria-hidden="true"><span class="crest-letter">A</span><span class="crest-foot">E2</span></span>
+          <span class="brand-text"><strong>AUFHEIM <span>E2</span></strong><small>TEAM-DASHBOARD</small></span>
+        </a>
+        <div class="nav-actions">
+          <a class="source-link source-link-top" id="top-source" target="_blank" rel="noopener noreferrer" href="https://www.fussball.de/">FUSSBALL.DE <span aria-hidden="true">↗</span></a>
+          <button class="share-button" id="share-button" type="button" aria-label="Seite teilen">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V3m0 0 4.5 4.5M12 3 7.5 7.5"/><path d="M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>
+            <span>Teilen</span>
+          </button>
+        </div>
+      </header>
+
+      <main id="start">
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-glow" aria-hidden="true"></div>
+          <svg class="pitch-illustration" viewBox="0 0 430 370" fill="none" aria-hidden="true">
+            <rect x="92" y="32" width="254" height="314" rx="4" stroke="white" stroke-opacity=".17" stroke-width="2"/>
+            <line x1="92" y1="189" x2="346" y2="189" stroke="white" stroke-opacity=".17" stroke-width="2"/>
+            <circle cx="219" cy="189" r="56" stroke="white" stroke-opacity=".17" stroke-width="2"/>
+            <circle cx="219" cy="189" r="3" fill="white" fill-opacity=".25"/>
+            <rect x="150" y="32" width="138" height="63" stroke="white" stroke-opacity=".17" stroke-width="2"/>
+            <rect x="150" y="283" width="138" height="63" stroke="white" stroke-opacity=".17" stroke-width="2"/>
+            <circle cx="322" cy="88" r="52" fill="#f78630"/>
+            <path d="m322 60 22 16-8 27h-28l-8-27 22-16Z" stroke="#092b46" stroke-width="6" stroke-linejoin="round"/>
+            <path d="M322 60V37M344 76l22-7M336 103l12 21M308 103l-15 21M300 76l-20-11" stroke="#092b46" stroke-opacity=".72" stroke-width="5"/>
+          </svg>
+          <div class="hero-copy">
+            <div class="eyebrow light"><span class="eyebrow-dash"></span><span id="competition">E-JUNIOREN · QUAL.-STAFFEL 22</span></div>
+            <h1 id="hero-title">Eine Mannschaft.<br /><em>Ganz viel Teamgeist.</em></h1>
+            <p>Alle Spiele. Alle Tore. Ein Team.<br />Die E2 von Aufheim & Holzschwang auf einen Blick.</p>
+            <div class="hero-bottom">
+              <span class="season-pill"><span class="orange-dot"></span><span id="season">SAISON 2026/27</span></span>
+              <span class="hero-detail">Donau / Iller · Württemberg</span>
+            </div>
+          </div>
+          <div class="hero-ranking" aria-label="Aktueller Tabellenplatz">
+            <span class="ranking-kicker">AKTUELLER PLATZ</span>
+            <div class="ranking-big"><span id="hero-rank">1</span><span class="ranking-period">.</span></div>
+            <span class="ranking-label"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M7 3h10v2h4v3c0 3.2-2.4 5.7-5.5 5.9a5.5 5.5 0 0 1-2.5 2.9V20h4v2H7v-2h4v-3.3a5.5 5.5 0 0 1-2.5-2.8C5.4 13.7 3 11.2 3 8V5h4V3Zm0 4H5v1c0 1.6.8 2.9 2.2 3.5A9.8 9.8 0 0 1 7 9.7V7Zm10 0v2.7a9.8 9.8 0 0 1-.2 1.8C18.2 10.9 19 9.6 19 8V7h-2Z"/></svg> TABELLENFÜHRER</span>
+          </div>
+        </section>
+
+        <div class="data-banner" role="status"><span class="banner-dot" aria-hidden="true"></span><span id="data-banner-text">Verifizierter Tabellenstand vom 30. Oktober 2026</span><a id="data-banner-source" href="https://www.fussball.de/" target="_blank" rel="noopener noreferrer">Offizielle Daten <span aria-hidden="true">↗</span></a></div>
+
+        <section class="stat-grid" aria-label="Teamstatistik">
+          <div class="stat-card"><span class="stat-icon" aria-hidden="true">★</span><span class="stat-value" id="stat-points">13</span><span class="stat-label">PUNKTE</span><span class="stat-hint">aus 5 Spielen</span></div>
+          <div class="stat-card"><span class="stat-icon" aria-hidden="true">↗</span><span class="stat-value" id="stat-wins">4</span><span class="stat-label">SIEGE</span><span class="stat-hint">weiter so!</span></div>
+          <div class="stat-card"><span class="stat-icon" aria-hidden="true">⚽</span><span class="stat-value" id="stat-goals">36</span><span class="stat-label">TORE</span><span class="stat-hint">offensiv stark</span></div>
+          <div class="stat-card"><span class="stat-icon" aria-hidden="true">＋</span><span class="stat-value" id="stat-difference">+17</span><span class="stat-label">TOR-DIFFERENZ</span><span class="stat-hint">36 erzielt · 19 kassiert</span></div>
+        </section>
+
+        <div class="content-grid">
+          <section class="panel standings-panel" id="tabelle" aria-labelledby="standings-title">
+            <div class="section-heading"><div><div class="eyebrow"><span class="eyebrow-dash"></span> DIE KONKURRENZ IM BLICK</div><h2 id="standings-title">Die Tabelle<span class="orange-stop">.</span></h2></div><span class="round-label" id="league-team-count">7 TEAMS</span></div>
+            <div class="table-scroller">
+              <table class="league-table" aria-describedby="table-note">
+                <thead><tr><th scope="col">#</th><th scope="col">Mannschaft</th><th scope="col">Sp.</th><th scope="col" class="desktop-col">S</th><th scope="col" class="desktop-col">U</th><th scope="col" class="desktop-col">N</th><th scope="col" class="desktop-col">Tore</th><th scope="col">Diff.</th><th scope="col" class="points-col">Pkt.</th></tr></thead>
+                <tbody id="standings-body"></tbody>
+              </table>
+            </div>
+            <div class="panel-foot"><p id="table-note"><span class="legend-indicator"></span> Aufheim E2 ist orange markiert.</p><a id="table-source" href="https://www.fussball.de/" target="_blank" rel="noopener noreferrer">Gesamte Tabelle <span aria-hidden="true">↗</span></a></div>
+          </section>
+
+          <aside class="sidebar" aria-label="Spiele und Form">
+            <section class="next-match-card" id="naechstes-spiel" aria-labelledby="next-match-title">
+              <div class="match-card-top"><span><span class="next-dot"></span> NÄCHSTES SPIEL</span><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4m10-4v4M3 10h18"/></svg></div>
+              <div class="match-date" id="next-date">FR · 30. OKTOBER</div>
+              <div class="match-time" id="next-time">16:15 <span>UHR</span></div>
+              <div class="fixture-teams"><div class="fixture-team"><span class="mini-crest opponent">P</span><span id="next-home">SV Pfaffenhofen II</span></div><span class="fixture-versus">VS.</span><div class="fixture-team"><span class="mini-crest our-team">A</span><span id="next-away">SV Aufheim II</span></div></div>
+              <div class="match-bottom"><span id="next-note">AUSWÄRTSSPIEL</span><a id="next-source" href="https://www.fussball.de/" target="_blank" rel="noopener noreferrer" aria-label="Spiel auf Fußball.de ansehen">↗</a></div>
+            </section>
+
+            <section class="form-card" aria-labelledby="form-title">
+              <div class="form-header"><span class="eyebrow">DIE LETZTEN 5 SPIELE</span><h3 id="form-title">Starke Form!</h3></div>
+              <div class="form-circles" id="form-circles" aria-label="Formkurve"></div>
+              <p id="form-copy">Vier Siege, ein Unentschieden. Noch ungeschlagen.</p>
+              <div class="form-rule"><div id="form-rule-fill"></div></div>
+              <span class="form-footer">GEMEINSAM STARK <span aria-hidden="true">↗</span></span>
+            </section>
+          </aside>
+        </div>
+
+        <section class="results-section" id="ergebnisse" aria-labelledby="results-title">
+          <div class="section-heading results-heading"><div><div class="eyebrow"><span class="eyebrow-dash"></span> RÜCKBLICK</div><h2 id="results-title">Unsere Spiele<span class="orange-stop">.</span></h2></div><div class="filter-buttons" role="group" aria-label="Spiele filtern"><button class="filter-button active" type="button" data-filter="all" aria-pressed="true">Alle</button><button class="filter-button" type="button" data-filter="win" aria-pressed="false">Siege</button><button class="filter-button" type="button" data-filter="draw" aria-pressed="false">Remis</button></div></div>
+          <div class="result-list" id="result-list" aria-live="polite"></div>
+          <p class="results-note">Ergebnisse ohne bestätigten exakten Spielstand sind als „Sieg“ gekennzeichnet. Die Daten spiegeln den angegebenen Stand wider.</p>
+        </section>
+
+        <section class="closing-strip" aria-label="Team-Motto"><span class="closing-ball" aria-hidden="true">✳</span><div><span class="closing-kicker">SV AUFHEIM · E2</span><strong>Zusammen auf dem Platz. <em>Zusammen stark.</em></strong></div><a id="closing-source" href="https://www.fussball.de/" target="_blank" rel="noopener noreferrer">Zu FUSSBALL.DE <span aria-hidden="true">↗</span></a></section>
+      </main>
+
+      <footer class="site-footer"><div class="footer-brand"><span class="footer-circle">A</span><span><strong>SV AUFHEIM E2</strong><small>Inoffizielles Fan-Dashboard</small></span></div><p>Keine offiziellen Vereinsinhalte · Keine personenbezogenen Spielerdaten<br />Datenquelle: FUSSBALL.DE · Stand: <span id="footer-updated">30.10.2026</span></p><a href="#start" class="back-to-top">Nach oben ↑</a></footer>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
