@@ -79,7 +79,8 @@ def tidy(text):
 
 def team_name(text):
     raw = tidy(text)
-    return {"SGM SV Aufheim II / AH": "SV Aufheim II", "SGM FV Senden II": "FV Senden II"}.get(raw, raw)
+    return {"SGM SV Aufheim II / AH": "SV Aufheim II", "SGM FV Senden II": "FV Senden II",
+            "SGM FC Illerkirchberg/ SC Unterweiler III": "SG Illerkirchberg / Unterweiler III"}.get(raw, raw)
 
 
 def parse_standings(html):
@@ -154,11 +155,17 @@ def load_snapshot():
 
 def merge(old, standings, previous, upcoming, today):
     fresh = {**old, "standings": standings}
-    saved = {(m["date"], m["home"], m["away"]): m for m in old["results"]}
+    # One league fixture per date. Prefer an older, already verified entry if a
+    # previous importer created a duplicate with an alternate official club name.
+    saved = {m["date"]: m for m in reversed(old["results"])}
     former = next(t for t in old["standings"] if t.get("ours"))
     current = next(t for t in standings if t.get("ours"))
     difference = {k: current[k] - former[k] for k in ("played", "wins", "draws", "losses", "goalsFor", "goalsAgainst")}
-    unknown = [m for m in previous if (m["date"], m["home"], m["away"]) not in saved and "SV Aufheim II" in (m["home"], m["away"])]
+    unknown = [m for m in previous if m["date"] not in saved and "SV Aufheim II" in (m["home"], m["away"])]
+    # The league table can update before the previous-games endpoint does.
+    # In that case the previously announced fixture itself identifies the game.
+    if not unknown and difference["played"] == 1 and old.get("nextMatch") and old["nextMatch"]["date"] <= today and old["nextMatch"]["date"] not in saved:
+        unknown = [old["nextMatch"]]
     # Only one new played match and exactly one outcome => unambiguous score.
     if (difference["played"] == len(unknown) == 1 and
             sorted([difference["wins"], difference["draws"], difference["losses"]]) == [0, 0, 1] and
@@ -169,17 +176,17 @@ def merge(old, standings, previous, upcoming, today):
         match = unknown[0]
         home = match["home"] == "SV Aufheim II"
         goals_for, goals_against = difference["goalsFor"], difference["goalsAgainst"]
-        saved[(match["date"], match["home"], match["away"])] = {
+        saved[match["date"]] = {
             "date": match["date"], "home": match["home"], "away": match["away"],
             "score": f"{goals_for if home else goals_against} : {goals_against if home else goals_for}",
             "outcome": "win" if difference["wins"] else "draw" if difference["draws"] else "loss",
         }
     fresh["results"] = sorted(saved.values(), key=lambda m: m["date"], reverse=True)[:8]
-    future = sorted((m for m in upcoming if m["date"] >= today), key=lambda m: (m["date"], m["time"]))
+    future = sorted((m for m in upcoming if m["date"] >= today and m["date"] not in saved), key=lambda m: (m["date"], m["time"]))
     if future:
         match = future[0]
         fresh["nextMatch"] = {**match, "note": "Heimspiel" if match["home"] == "SV Aufheim II" else "Auswärtsspiel"}
-    elif old.get("nextMatch") and old["nextMatch"]["date"] < today:
+    elif old.get("nextMatch") and (old["nextMatch"]["date"] < today or old["nextMatch"]["date"] in saved):
         fresh["nextMatch"] = None
     if any(fresh[k] != old[k] for k in ("standings", "results", "nextMatch")):
         now = datetime.fromisoformat(today)

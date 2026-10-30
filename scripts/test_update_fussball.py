@@ -43,6 +43,20 @@ class ImporterTests(unittest.TestCase):
         result = merge(old, [fresh], games, [], "2026-11-14")
         self.assertEqual(result["results"], [])
 
+    def test_duplicate_old_club_alias_does_not_steal_new_result(self):
+        old_team = {"name": "SV Aufheim II", "ours": True, "played": 5, "wins": 4, "draws": 1, "losses": 0, "goalsFor": 36, "goalsAgainst": 19, "points": 13}
+        old = {"updated": "2026-10-23", "updatedLabel": "23. Oktober 2026", "standings": [old_team],
+               "results": [{"date": "2026-09-18", "home": "SV Aufheim II", "away": "SG Illerkirchberg / Unterweiler III", "score": "9 : 3", "outcome": "win"}],
+               "nextMatch": {"date": "2026-10-30", "time": "16:15", "home": "SV Pfaffenhofen II", "away": "SV Aufheim II", "note": "Auswärtsspiel"}}
+        fresh = {**old_team, "played": 6, "losses": 1, "goalsFor": 38, "goalsAgainst": 22}
+        old_fixture_alias = {"date": "2026-09-18", "time": "16:45", "home": "SV Aufheim II", "away": "SGM FC Illerkirchberg/ SC Unterweiler III"}
+        result = merge(old, [fresh], [old_fixture_alias], [old["nextMatch"]], "2026-10-30")
+        self.assertEqual(len(result["results"]), 2)
+        self.assertEqual(result["results"][0]["date"], "2026-10-30")
+        self.assertEqual(result["results"][0]["score"], "3 : 2")
+        self.assertEqual(result["results"][1]["score"], "9 : 3")
+        self.assertIsNone(result["nextMatch"])
+
 
 if __name__ == "__main__":
     unittest.main()
