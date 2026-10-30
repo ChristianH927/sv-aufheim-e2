@@ -23,12 +23,12 @@ window.AUFHEIM_DATA = {
     },
     {
       "name": "FV Gerlenhofen II",
-      "played": 5,
+      "played": 6,
       "wins": 4,
       "draws": 0,
-      "losses": 1,
-      "goalsFor": 24,
-      "goalsAgainst": 11,
+      "losses": 2,
+      "goalsFor": 26,
+      "goalsAgainst": 14,
       "points": 12
     },
     {
@@ -73,13 +73,13 @@ window.AUFHEIM_DATA = {
     },
     {
       "name": "SG Illerkirchberg / Unterweiler III",
-      "played": 5,
-      "wins": 0,
+      "played": 6,
+      "wins": 1,
       "draws": 0,
       "losses": 5,
-      "goalsFor": 4,
-      "goalsAgainst": 44,
-      "points": 0
+      "goalsFor": 7,
+      "goalsAgainst": 46,
+      "points": 3
     }
   ],
   "nextMatch": null,
