@@ -1,6 +1,11 @@
 name: SV Aufheim E2 – Tabellenabgleich
 
 on:
+  push:
+    paths:
+      - ".github/workflows/update-data.yml"
+      - "scripts/update_fussball.py"
+      - "scripts/test_update_fussball.py"
   schedule:
     # UTC; GitHub kann geplante Läufe bei hoher Auslastung verzögern.
     - cron: "17 6,16,20 * * *"
