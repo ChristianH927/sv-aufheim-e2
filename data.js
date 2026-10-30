@@ -1,34 +1,136 @@
-/*
- * Teamdaten – einmalige Momentaufnahme von FUSSBALL.DE.
- * Stand: 30. Oktober 2026 (vor dem Spiel gegen Pfaffenhofen II).
- * Änderungen an dieser Datei werden nach erneutem Upload/Commit sichtbar.
- * Die Seite behauptet ausdrücklich NICHT, bereits live synchronisiert zu sein.
+/* Automatisch validierte FUSSBALL.DE-Momentaufnahme.
+ * Bei Abruffehlern bleiben die zuletzt verifizierten Daten bestehen.
  */
 window.AUFHEIM_DATA = {
-  updated: "2026-10-30",
-  updatedLabel: "30. Oktober 2026",
-  season: "2026/27",
-  competition: "E-Junioren · Qual.-Staffel 22",
-  team: "SGM SV Aufheim II / AH",
-  shortTeam: "SV Aufheim E2",
-  source: "https://www.fussball.de/mannschaft/sgm-sv-aufheim-ii-ah-sv-aufheim-wuerttemberg/-/saison/2627/team-id/031BOECLT4000000VS5489BRVTPI24NQ",
-  standings: [
-    { name: "SV Aufheim II", played: 5, wins: 4, draws: 1, losses: 0, goalsFor: 36, goalsAgainst: 19, points: 13, ours: true },
-    { name: "FV Gerlenhofen II", played: 5, wins: 4, draws: 0, losses: 1, goalsFor: 24, goalsAgainst: 11, points: 12 },
-    { name: "FV Senden II", played: 6, wins: 3, draws: 1, losses: 2, goalsFor: 32, goalsAgainst: 17, points: 10 },
-    { name: "SV Pfaffenhofen II", played: 5, wins: 3, draws: 0, losses: 2, goalsFor: 16, goalsAgainst: 17, points: 9 },
-    { name: "FC Silheim II", played: 5, wins: 2, draws: 0, losses: 3, goalsFor: 23, goalsAgainst: 22, points: 6 },
-    { name: "SC Staig I", played: 5, wins: 1, draws: 0, losses: 4, goalsFor: 17, goalsAgainst: 22, points: 3 },
-    { name: "SG Illerkirchberg / Unterweiler III", played: 5, wins: 0, draws: 0, losses: 5, goalsFor: 4, goalsAgainst: 44, points: 0 }
+  "updated": "2026-10-30",
+  "updatedLabel": "30. Oktober 2026",
+  "season": "2026/27",
+  "competition": "E-Junioren · Qual.-Staffel 22",
+  "team": "SGM SV Aufheim II / AH",
+  "shortTeam": "SV Aufheim E2",
+  "source": "https://www.fussball.de/mannschaft/sgm-sv-aufheim-ii-ah-sv-aufheim-wuerttemberg/-/saison/2627/team-id/031BOECLT4000000VS5489BRVTPI24NQ",
+  "standings": [
+    {
+      "name": "SV Aufheim II",
+      "played": 6,
+      "wins": 4,
+      "draws": 1,
+      "losses": 1,
+      "goalsFor": 38,
+      "goalsAgainst": 22,
+      "points": 13,
+      "ours": true
+    },
+    {
+      "name": "FV Gerlenhofen II",
+      "played": 5,
+      "wins": 4,
+      "draws": 0,
+      "losses": 1,
+      "goalsFor": 24,
+      "goalsAgainst": 11,
+      "points": 12
+    },
+    {
+      "name": "SV Pfaffenhofen II",
+      "played": 6,
+      "wins": 4,
+      "draws": 0,
+      "losses": 2,
+      "goalsFor": 19,
+      "goalsAgainst": 19,
+      "points": 12
+    },
+    {
+      "name": "FV Senden II",
+      "played": 6,
+      "wins": 3,
+      "draws": 1,
+      "losses": 2,
+      "goalsFor": 32,
+      "goalsAgainst": 17,
+      "points": 10
+    },
+    {
+      "name": "FC Silheim II",
+      "played": 5,
+      "wins": 2,
+      "draws": 0,
+      "losses": 3,
+      "goalsFor": 23,
+      "goalsAgainst": 22,
+      "points": 6
+    },
+    {
+      "name": "SC Staig I",
+      "played": 5,
+      "wins": 1,
+      "draws": 0,
+      "losses": 4,
+      "goalsFor": 17,
+      "goalsAgainst": 22,
+      "points": 3
+    },
+    {
+      "name": "SGM FC Illerkirchberg/ SC Unterweiler III",
+      "played": 5,
+      "wins": 0,
+      "draws": 0,
+      "losses": 5,
+      "goalsFor": 4,
+      "goalsAgainst": 44,
+      "points": 0
+    }
   ],
-  nextMatch: {
-    date: "2026-10-30", time: "16:15", home: "SV Pfaffenhofen II", away: "SV Aufheim II", note: "Auswärtsspiel"
+  "nextMatch": {
+    "date": "2026-10-30",
+    "time": "16:15",
+    "home": "SV Pfaffenhofen II",
+    "away": "SV Aufheim II",
+    "note": "Auswärtsspiel"
   },
-  results: [
-    { date: "2026-10-23", home: "SV Aufheim II", away: "FV Senden II", score: "5 : 5", outcome: "draw" },
-    { date: "2026-10-09", home: "FV Gerlenhofen II", away: "SV Aufheim II", score: null, outcome: "win" },
-    { date: "2026-10-02", home: "SV Aufheim II", away: "FC Silheim II", score: null, outcome: "win" },
-    { date: "2026-09-25", home: "SC Staig I", away: "SV Aufheim II", score: "3 : 8", outcome: "win" },
-    { date: "2026-09-18", home: "SV Aufheim II", away: "SG Illerkirchberg / Unterweiler III", score: "9 : 3", outcome: "win" }
+  "results": [
+    {
+      "date": "2026-10-23",
+      "home": "SV Aufheim II",
+      "away": "FV Senden II",
+      "score": "5 : 5",
+      "outcome": "draw"
+    },
+    {
+      "date": "2026-10-09",
+      "home": "FV Gerlenhofen II",
+      "away": "SV Aufheim II",
+      "score": null,
+      "outcome": "win"
+    },
+    {
+      "date": "2026-10-02",
+      "home": "SV Aufheim II",
+      "away": "FC Silheim II",
+      "score": null,
+      "outcome": "win"
+    },
+    {
+      "date": "2026-09-25",
+      "home": "SC Staig I",
+      "away": "SV Aufheim II",
+      "score": "3 : 8",
+      "outcome": "win"
+    },
+    {
+      "date": "2026-09-18",
+      "home": "SV Aufheim II",
+      "away": "SG Illerkirchberg / Unterweiler III",
+      "score": "9 : 3",
+      "outcome": "win"
+    },
+    {
+      "date": "2026-09-18",
+      "home": "SV Aufheim II",
+      "away": "SGM FC Illerkirchberg/ SC Unterweiler III",
+      "score": "2 : 3",
+      "outcome": "loss"
+    }
   ]
 };
