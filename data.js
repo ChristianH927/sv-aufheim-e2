@@ -82,14 +82,15 @@ window.AUFHEIM_DATA = {
       "points": 0
     }
   ],
-  "nextMatch": {
-    "date": "2026-10-30",
-    "time": "16:15",
-    "home": "SV Pfaffenhofen II",
-    "away": "SV Aufheim II",
-    "note": "Auswärtsspiel"
-  },
+  "nextMatch": null,
   "results": [
+    {
+      "date": "2026-10-30",
+      "home": "SV Pfaffenhofen II",
+      "away": "SV Aufheim II",
+      "score": "3 : 2",
+      "outcome": "loss"
+    },
     {
       "date": "2026-10-23",
       "home": "SV Aufheim II",
