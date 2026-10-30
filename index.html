@@ -9,8 +9,27 @@
     <meta property="og:description" content="Tabelle, Ergebnisse und nächste Spiele auf einen Blick." />
     <title>SV Aufheim E2 · Team-Dashboard</title>
     <link rel="stylesheet" href="styles.css?v=20261030c" />
-    <script src="data.js?v=20261030c" defer></script>
-    <script src="app.js?v=20261030c" defer></script>
+    <script>
+      // Jede neue Seitenöffnung prüft den zuletzt veröffentlichten Tabellenstand.
+      // GitHub Pages und mobile Browser cachen statische Dateien andernfalls
+      // teils mehrere Minuten auch nach einem erfolgreichen Workflow.
+      (() => {
+        const data = document.createElement("script");
+        data.src = `data.js?fresh=${Date.now()}`;
+        const loadApp = () => {
+          const appendApp = () => {
+            const app = document.createElement("script");
+            app.src = "app.js?v=20261030c";
+            document.head.append(app);
+          };
+          if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", appendApp, { once: true });
+          else appendApp();
+        };
+        data.onload = loadApp;
+        data.onerror = loadApp;
+        document.head.append(data);
+      })();
+    </script>
   </head>
   <body>
     <div class="page-shell">
