@@ -72,7 +72,7 @@ window.AUFHEIM_DATA = {
       "points": 3
     },
     {
-      "name": "SGM FC Illerkirchberg/ SC Unterweiler III",
+      "name": "SG Illerkirchberg / Unterweiler III",
       "played": 5,
       "wins": 0,
       "draws": 0,
@@ -124,13 +124,6 @@ window.AUFHEIM_DATA = {
       "away": "SG Illerkirchberg / Unterweiler III",
       "score": "9 : 3",
       "outcome": "win"
-    },
-    {
-      "date": "2026-09-18",
-      "home": "SV Aufheim II",
-      "away": "SGM FC Illerkirchberg/ SC Unterweiler III",
-      "score": "2 : 3",
-      "outcome": "loss"
     }
   ]
 };
