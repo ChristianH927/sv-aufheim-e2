@@ -50,11 +50,23 @@
     const d = new Date(`${iso}T12:00:00Z`);
     return [new Intl.DateTimeFormat("de-DE", { day: "2-digit", timeZone: "Europe/Berlin" }).format(d), new Intl.DateTimeFormat("de-DE", { month: "short", year: "numeric", timeZone: "Europe/Berlin" }).format(d).toUpperCase()];
   };
-  $("next-date").textContent = longDate(data.nextMatch.date);
-  $("next-time").innerHTML = `${escapeHTML(data.nextMatch.time)} <span>UHR</span>`;
-  $("next-home").textContent = data.nextMatch.home;
-  $("next-away").textContent = data.nextMatch.away;
-  $("next-note").textContent = ageDays > 2 ? "TERMIN LAUT DATENSTAND" : data.nextMatch.note.toUpperCase();
+  if (data.nextMatch) {
+    $("next-date").textContent = longDate(data.nextMatch.date);
+    $("next-time").innerHTML = `${escapeHTML(data.nextMatch.time)} <span>UHR</span>`;
+    $("next-home").textContent = data.nextMatch.home;
+    $("next-away").textContent = data.nextMatch.away;
+    $("next-note").textContent = ageDays > 2 ? "TERMIN LAUT DATENSTAND" : data.nextMatch.note.toUpperCase();
+  } else {
+    $("next-date").textContent = "NOCH NICHT ANGESETZT";
+    $("next-time").innerHTML = `– <span>UHR</span>`;
+    $("next-home").textContent = "Spielplan";
+    $("next-away").textContent = "Folgt";
+    $("next-note").textContent = "NEUE TERMINE AUF FUSSBALL.DE";
+  }
+  document.querySelector(".stat-card:nth-child(1) .stat-hint").textContent = `aus ${ours.played} Spielen`;
+  document.querySelector(".stat-card:nth-child(4) .stat-hint").textContent = `${ours.goalsFor} erzielt · ${ours.goalsAgainst} kassiert`;
+  $("hero-rank").textContent = rank;
+  document.querySelector(".ranking-label").lastChild.textContent = rank === 1 ? " TABELLENFÜHRER" : " TABELLENPLATZ";
 
   const outcomeLabel = { win: "SIEG", draw: "REMIS", loss: "NIEDERLAGE" };
   const outcomeShort = { win: "S", draw: "U", loss: "N" };

@@ -8,9 +8,9 @@
     <meta property="og:title" content="SV Aufheim E2 – Team-Dashboard" />
     <meta property="og:description" content="Tabelle, Ergebnisse und nächste Spiele auf einen Blick." />
     <title>SV Aufheim E2 · Team-Dashboard</title>
-    <link rel="stylesheet" href="styles.css?v=20261030b" />
-    <script src="data.js" defer></script>
-    <script src="app.js" defer></script>
+    <link rel="stylesheet" href="styles.css?v=20261030c" />
+    <script src="data.js?v=20261030c" defer></script>
+    <script src="app.js?v=20261030c" defer></script>
   </head>
   <body>
     <div class="page-shell">
@@ -20,6 +20,7 @@
           <span class="brand-text"><strong>AUFHEIM <span>E2</span></strong><small>SGM AUFHEIM / HOLZSCHWANG</small></span>
         </a>
         <div class="nav-actions">
+          <a class="live-nav-link" href="ticker.html"><span class="live-nav-dot"></span> LIVETICKER</a>
           <a class="source-link source-link-top" id="top-source" target="_blank" rel="noopener noreferrer" href="https://www.fussball.de/">FUSSBALL.DE <span aria-hidden="true">↗</span></a>
           <button class="share-button" id="share-button" type="button" aria-label="Seite teilen">
             <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V3m0 0 4.5 4.5M12 3 7.5 7.5"/><path d="M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>
@@ -49,6 +50,7 @@
         </section>
 
         <div class="data-banner" role="status"><span class="banner-dot" aria-hidden="true"></span><span id="data-banner-text">Verifizierter Tabellenstand vom 30. Oktober 2026</span><a id="data-banner-source" href="https://www.fussball.de/" target="_blank" rel="noopener noreferrer">Offizielle Daten <span aria-hidden="true">↗</span></a></div>
+        <a class="ticker-promo" href="ticker.html"><span class="live-nav-dot"></span><span><strong>Spiel läuft? Live dabei.</strong><small>Tore und Ereignisse direkt vom Spielfeld verfolgen</small></span><span aria-hidden="true">→</span></a>
 
         <section class="stat-grid" aria-label="Teamstatistik">
           <div class="stat-card"><span class="stat-icon" aria-hidden="true">★</span><span class="stat-value" id="stat-points">13</span><span class="stat-label">PUNKTE</span><span class="stat-hint">aus 5 Spielen</span></div>

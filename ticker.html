@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#101011" />
+    <meta name="description" content="Der inoffizielle Live-Spielstand der Aufheim E2 – Tore und Ereignisse direkt vom Spielfeld." />
+    <title>SV Aufheim E2 · Liveticker</title>
+    <link rel="stylesheet" href="styles.css?v=20261030c" />
+    <link rel="stylesheet" href="ticker.css?v=20261030a" />
+    <script src="data.js?v=20261030c" defer></script>
+    <script type="module" src="ticker.js?v=20261030a"></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="index.html"><img class="crest" src="logo.png" width="62" height="62" alt="SGM-Aufheim-Holzschwang-Wappen" /><span class="brand-text"><strong>AUFHEIM <span>E2</span></strong><small>SGM AUFHEIM / HOLZSCHWANG</small></span></a>
+        <div class="nav-actions"><a class="back-link" href="index.html">← <span>Zur Tabelle</span></a></div>
+      </header>
+
+      <main class="live-main">
+        <div class="live-header"><div class="eyebrow"><span class="eyebrow-dash"></span> DIREKT VOM SPIELFELDRAND</div><h1>Unser <em>Liveticker.</em></h1><p>Aufheims Zweite, unsere Nummer eins. Alle Tore auf einen Blick.</p></div>
+        <div class="live-message" id="live-message" role="status">Verbindung zum Liveticker wird geprüft …</div>
+
+        <section class="live-score-card" aria-label="Aktuelles Spiel">
+          <div class="live-score-top"><span class="live-status"><span class="live-status-dot"></span><span id="match-status">KEIN SPIEL AKTIV</span></span><span class="live-today" id="match-date">AUFHEIM E2</span></div>
+          <div class="live-score-grid"><div class="live-side"><img src="logo.png" class="live-logo" alt="Wappen Aufheim Holzschwang" /><span id="team-home">SV Aufheim II</span></div><div class="live-score" id="score" aria-live="polite">– : –</div><div class="live-side"><div class="live-opponent-crest">⚽</div><span id="team-away">Gegner</span></div></div>
+          <div class="live-score-foot"><span id="match-updated">Warte auf Spielstart</span><span>INOFFIZIELLER ELTERN-TICKER</span></div>
+        </section>
+
+        <div class="live-layout">
+          <section class="live-events-panel"><div class="section-heading"><div><div class="eyebrow"><span class="eyebrow-dash"></span> WAS PASSIERT IST</div><h2>Spielverlauf<span class="orange-stop">.</span></h2></div><span class="round-label" id="event-count">0 EVENTS</span></div><ol class="live-events" id="event-feed" aria-live="polite"><li class="event-empty">Noch keine Ereignisse gemeldet.</li></ol></section>
+
+          <section class="live-control-panel" aria-label="Reporter-Zugang">
+            <div class="live-admin-head"><div><div class="eyebrow">VOR ORT</div><h2>Reportermodus<span class="orange-stop">.</span></h2></div><span class="live-lock">🔒</span></div>
+            <p class="reporter-desc">Nur freigeschaltete Eltern und Trainer können Tore und Ereignisse melden. Zuschauer brauchen keine Anmeldung.</p>
+            <div class="reporter-auth"><button id="sign-in" class="reporter-login" type="button">Mit Google anmelden</button><button id="sign-out" class="reporter-logout" type="button" hidden>Abmelden</button><span id="reporter-status">Nicht angemeldet</span></div>
+
+            <div id="reporter-tools" class="reporter-tools" hidden>
+              <div class="reporter-separator"></div>
+              <p class="reporter-tip">Bei der ersten Eingabe prüft Firebase deine Schreibberechtigung.</p>
+              <h3>Spiel starten / wechseln</h3>
+              <label for="opponent-input">Gegner</label><input id="opponent-input" maxlength="65" autocomplete="off" placeholder="z. B. SV Pfaffenhofen II" />
+              <label for="venue-input">Spielort</label><select id="venue-input"><option value="home">Heimspiel</option><option value="away">Auswärtsspiel</option></select>
+              <button id="new-match" class="reporter-outline" type="button">Neues Spiel anlegen</button>
+              <h3>Spielereignisse</h3>
+              <div class="reporter-buttons"><button data-event="start" type="button">▶ Anpfiff</button><button data-event="half" type="button">◫ Halbzeit</button><button data-event="resume" type="button">▶ 2. Halbzeit</button><button data-event="end" type="button">■ Abpfiff</button></div>
+              <div class="goal-buttons"><button data-event="goal-us" type="button">⚽ Tor Aufheim +1</button><button data-event="goal-them" type="button">⚽ Tor Gegner +1</button></div>
+              <div class="minor-actions"><button id="undo" type="button">↶ Letztes Ereignis rückgängig</button></div>
+              <label for="minute-input">Spielminute (optional)</label><input id="minute-input" type="number" inputmode="numeric" min="1" max="120" placeholder="z. B. 12" />
+              <label for="note-input">Kurze Meldung (ohne Kindernamen)</label><input id="note-input" maxlength="140" placeholder="z. B. Super Parade!" /><button id="send-note" class="reporter-outline" type="button">Meldung senden</button>
+              <div id="reporter-feedback" role="status" aria-live="polite"></div>
+            </div>
+          </section>
+        </div>
+
+        <p class="live-disclaimer">Inoffizieller Eltern-Ticker · Meldungen von anwesenden Personen, ohne Gewähr · Bitte keine persönlichen Daten von Kindern eintragen.</p>
+      </main>
+      <footer class="site-footer"><div class="footer-brand"><img class="footer-circle" src="logo.png" alt="" width="34" height="34" /><span><strong>SGM AUFHEIM / HOLZSCHWANG E2</strong><small>Ein Team. Ein Ticker.</small></span></div><a href="index.html" class="back-to-top">Zur Teamseite ↑</a></footer>
+    </div>
+    <aside class="sponsor-strip" aria-label="Werbung: Pizzeria Bolzano"><div class="sponsor-card"><span class="sponsor-label">SPONSORED BY</span><img class="sponsor-image" src="sponsor-bolzano.jpg" alt="Pizzeria Bolzano – Fußball-Pizza" loading="eager" width="205" height="176" /></div></aside>
+  </body>
+</html>

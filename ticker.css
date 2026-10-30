@@ -1,0 +1,75 @@
+.back-link { color:#4f4b4b; font-size:12px; text-decoration:none; font-weight:850; padding:12px 14px; background:#fff; border:1px solid #e7e4df; border-radius:10px; }
+.live-main { padding-bottom:12px; }
+.live-header { padding:33px 2px 19px; }
+.live-header h1 { font:900 clamp(45px,7vw,77px)/1 var(--font-head); text-transform:uppercase; margin:14px 0 9px; }
+.live-header h1 em { color:#b42b3b; font-style:normal; }
+.live-header p { color:#86817c; font-size:13px; }
+.live-message { background:#fffaf0; border:1px solid #f2e4ca; border-radius:9px; padding:12px 15px; font-size:11px; color:#766447; margin-bottom:16px; line-height:1.5; }
+.live-message.ready { background:#eaf9f0; border-color:#bfe6c9; color:#2e7851; }
+.live-message.error { background:#fff1f1; border-color:#ffd3d8; color:#aa253a; }
+.live-score-card { border-radius:18px; background:linear-gradient(115deg,#09090a,#252021); color:white; overflow:hidden; box-shadow:0 16px 35px rgba(0,0,0,.14); }
+.live-score-card:before { display:block; content:""; height:5px; background:linear-gradient(90deg,var(--red),var(--orange)); }
+.live-score-top, .live-score-foot { display:flex; justify-content:space-between; align-items:center; gap:16px; padding:22px 28px; font-size:10px; letter-spacing:1px; font-weight:850; color:#bab4ac; }
+.live-status { display:flex; align-items:center; gap:10px; color:white; }
+.live-status-dot { width:9px; height:9px; background:var(--red); border-radius:50%; box-shadow:0 0 0 4px rgba(212,45,65,.18); }
+.live-status.active .live-status-dot { animation:pulse 2s infinite; }
+@keyframes pulse { 50% { opacity:.4; } }
+.live-score-grid { padding:8px 30px 38px; display:grid; grid-template-columns:1fr auto 1fr; align-items:center; column-gap:20px; }
+.live-side { display:flex; flex-direction:column; align-items:center; gap:13px; min-width:0; text-align:center; font:900 17px/1.3 var(--font-head); text-transform:uppercase; }
+.live-logo { width:75px; height:75px; border-radius:50%; object-fit:contain; background:#050505; }
+.live-opponent-crest { width:75px; height:75px; display:grid; place-items:center; background:#424043; border-radius:50%; font-size:38px; }
+.live-score { font:900 clamp(49px,9vw,106px)/1 var(--font-head); letter-spacing:-3px; white-space:nowrap; }
+.live-score-foot { padding:14px 28px; background:rgba(255,255,255,.055); font-size:9px; }
+.live-layout { display:grid; grid-template-columns:minmax(0,1.4fr) minmax(305px,.8fr); gap:22px; margin:25px 0 25px; align-items:start; }
+.live-events-panel,.live-control-panel { background:white; border:1px solid #eae8e3; border-radius:15px; padding:24px 0 12px; box-shadow:0 5px 25px rgba(25,46,63,.028); }
+.live-events-panel .section-heading { align-items:center; }
+.live-events-panel h2,.live-control-panel h2 { font:900 33px/1 var(--font-head); text-transform:uppercase; margin:8px 0 0; }
+.live-events { list-style:none; padding:0; margin:0 19px; }
+.live-events li { display:grid; grid-template-columns:48px 1fr; gap:12px; align-items:start; padding:16px 9px; border-top:1px solid #eceae6; }
+.live-events li.event-empty { display:block; padding:30px 12px; color:#9a9793; font-size:12px; }
+.event-when { color:#a09b94; font-size:11px; font-weight:900; letter-spacing:.4px; }
+.event-detail strong { display:block; font-size:13px; }
+.event-detail small { display:block; color:#817d79; font-size:11px; margin-top:4px; line-height:1.5; }
+.event-goal .event-detail strong { color:#b12a3c; }
+.live-control-panel { padding:24px; }
+.live-admin-head { display:flex; justify-content:space-between; align-items:center; }
+.live-lock { font-size:24px; }
+.reporter-desc,.reporter-tip { font-size:11px; color:#8c8783; line-height:1.7; margin:15px 0 16px; }
+.reporter-auth { display:flex; align-items:center; flex-wrap:wrap; gap:8px; }
+.reporter-auth button { background:#141416; color:white; border:none; border-radius:9px; padding:13px 14px; font-weight:800; font-size:12px; cursor:pointer; }
+.reporter-auth button.reporter-logout { background:#eeeae5; color:#454545; }
+.reporter-auth span { color:#8c8986; font-size:10px; }
+.reporter-tools { display:flex; flex-direction:column; gap:10px; }
+.reporter-tools[hidden] { display:none; }
+.reporter-separator { border-top:1px solid #eee9e3; margin-top:17px; }
+.reporter-tools h3 { font:900 19px var(--font-head); text-transform:uppercase; margin:18px 0 1px; }
+.reporter-tools label { color:#5a5553; font-size:10px; font-weight:800; }
+.reporter-tools input,.reporter-tools select { width:100%; min-height:43px; border:1px solid #d9d4cd; border-radius:8px; padding:11px; font:inherit; font-size:13px; background:white; }
+.reporter-tools button { cursor:pointer; min-height:43px; border-radius:8px; border:0; font-weight:850; font-size:12px; }
+.reporter-tools .reporter-outline { background:#f5e5bf; color:#443a2b; }
+.reporter-buttons { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.reporter-buttons button { color:#272322; background:#f0eeeb; }
+.goal-buttons { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.goal-buttons button { background:#ad2638; color:#fff; padding:10px; }
+.goal-buttons button:last-child { background:#2d2c2c; }
+.minor-actions button { background:none; color:#887c77; font-size:10px; padding:5px 0; }
+.minor-actions button:hover { color:#b9273b; }
+#reporter-feedback { color:#b4273a; font-size:11px; line-height:1.5; min-height:14px; }
+.live-disclaimer { font-size:10px; line-height:1.6; color:#999590; max-width:690px; margin:12px 0 45px; }
+@media (max-width:800px) { .live-layout { grid-template-columns:1fr; } }
+@media (max-width:600px) {
+  .live-header { padding-top:20px; }
+  .live-header h1 { font-size:50px; }
+  .live-score-top,.live-score-foot { padding:16px; font-size:8px; }
+  .live-score-grid { padding:8px 14px 27px; gap:6px; }
+  .live-side { font-size:11px; gap:10px; }
+  .live-logo,.live-opponent-crest { width:58px; height:58px; }
+  .live-opponent-crest { font-size:29px; }
+  .live-score { font-size:58px; letter-spacing:-2px; }
+  .live-events-panel h2,.live-control-panel h2 { font-size:29px; }
+  .live-control-panel { padding:20px; }
+  .live-message { font-size:10px; }
+  .live-score-foot { gap:8px; }
+  .live-score-foot span:last-child { text-align:right; }
+}
+@media (prefers-reduced-motion:reduce) { .live-status.active .live-status-dot { animation:none; } }
