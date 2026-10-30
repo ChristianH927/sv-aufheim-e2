@@ -53,23 +53,23 @@ window.AUFHEIM_DATA = {
     },
     {
       "name": "FC Silheim II",
-      "played": 5,
+      "played": 6,
       "wins": 2,
-      "draws": 0,
+      "draws": 1,
       "losses": 3,
-      "goalsFor": 23,
-      "goalsAgainst": 22,
-      "points": 6
+      "goalsFor": 28,
+      "goalsAgainst": 27,
+      "points": 7
     },
     {
       "name": "SC Staig I",
-      "played": 5,
+      "played": 6,
       "wins": 1,
-      "draws": 0,
+      "draws": 1,
       "losses": 4,
-      "goalsFor": 17,
-      "goalsAgainst": 22,
-      "points": 3
+      "goalsFor": 22,
+      "goalsAgainst": 27,
+      "points": 4
     },
     {
       "name": "SG Illerkirchberg / Unterweiler III",
