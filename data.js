@@ -178,6 +178,12 @@ window.AUFHEIM_DATA = {
       "name": "Spieler 10",
       "number": 11,
       "position": "Allrounder"
+    },
+    {
+      "name": "CEP",
+      "title": "Chief Operative Pizzaniolo",
+      "image": "cep-portrait.webp",
+      "type": "staff"
     }
   ],
   "rosterDemo": true

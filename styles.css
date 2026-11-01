@@ -294,3 +294,11 @@ h1, h2, h3, p { margin-top:0; }
   .squad-bottom { align-items:flex-start; flex-direction:column; gap:6px; }
 }
 @media (prefers-reduced-motion:reduce) { .squad-arrow { transition:none; } }
+
+/* Persönliche CEP-Karte – echtes Foto als Abschluss der Demo-Galerie. */
+.squad-cep-card { border-color:#e7d2a3; box-shadow:0 8px 25px rgba(92,61,25,.12); }
+.squad-cep-portrait { background:#d0c7ba; }
+.squad-cep-photo { display:block; width:100%; height:100%; object-fit:cover; object-position:center 28%; }
+.squad-cep-info { justify-content:center; padding-top:15px; padding-bottom:15px; }
+.squad-cep-info strong { font:900 29px/1 var(--font-head); color:#171719; margin:0 0 10px; }
+.squad-cep-title { font-size:11px; line-height:1.35; font-weight:850; color:#a3293e; }

@@ -144,7 +144,17 @@
   };
   if (squadTrack && demoPlayers.length) {
     squadTrack.innerHTML = demoPlayers.map((player,index) =>
-      '<article class="squad-card" aria-label="' + escapeHTML(player.name) + ', Nummer ' + Number(player.number) + ', ' + escapeHTML(player.position) + ', Demo">' +
+      player.type === "staff"
+      ? '<article class="squad-card squad-cep-card" aria-label="' + escapeHTML(player.name) + ', ' + escapeHTML(player.title) + '">' +
+          '<div class="squad-portrait squad-cep-portrait">' +
+            '<img class="squad-cep-photo" src="' + escapeHTML(player.image) + '" width="250" height="248" alt="Foto von Chris" loading="lazy" />' +
+          '</div>' +
+          '<div class="squad-card-info squad-cep-info">' +
+            '<strong>' + escapeHTML(player.name) + '</strong>' +
+            '<span class="squad-cep-title">' + escapeHTML(player.title) + '</span>' +
+          '</div>' +
+        '</article>'
+      : '<article class="squad-card" aria-label="' + escapeHTML(player.name) + ', Nummer ' + Number(player.number) + ', ' + escapeHTML(player.position) + ', Demo">' +
         '<div class="squad-portrait">' +
           '<span class="squad-jersey-num">#' + String(player.number).padStart(2,"0") + '</span>' +
           '<span class="squad-watermark" aria-hidden="true">E2</span>' +
