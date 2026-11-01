@@ -102,14 +102,15 @@ window.AUFHEIM_DATA = {
       "date": "2026-10-09",
       "home": "FV Gerlenhofen II",
       "away": "SV Aufheim II",
-      "score": null,
-      "outcome": "win"
+      "score": "5 : 6",
+      "outcome": "win",
+      "inferred": true
     },
     {
       "date": "2026-10-02",
       "home": "SV Aufheim II",
       "away": "FC Silheim II",
-      "score": null,
+      "score": "8 : 3",
       "outcome": "win"
     },
     {
@@ -126,5 +127,58 @@ window.AUFHEIM_DATA = {
       "score": "9 : 3",
       "outcome": "win"
     }
-  ]
+  ],
+  "players": [
+    {
+      "name": "Spieler 01",
+      "number": 1,
+      "position": "Torwart"
+    },
+    {
+      "name": "Spieler 02",
+      "number": 2,
+      "position": "Abwehr"
+    },
+    {
+      "name": "Spieler 03",
+      "number": 4,
+      "position": "Abwehr"
+    },
+    {
+      "name": "Spieler 04",
+      "number": 5,
+      "position": "Abwehr"
+    },
+    {
+      "name": "Spieler 05",
+      "number": 6,
+      "position": "Mittelfeld"
+    },
+    {
+      "name": "Spieler 06",
+      "number": 7,
+      "position": "Mittelfeld"
+    },
+    {
+      "name": "Spieler 07",
+      "number": 8,
+      "position": "Mittelfeld"
+    },
+    {
+      "name": "Spieler 08",
+      "number": 9,
+      "position": "Angriff"
+    },
+    {
+      "name": "Spieler 09",
+      "number": 10,
+      "position": "Angriff"
+    },
+    {
+      "name": "Spieler 10",
+      "number": 11,
+      "position": "Allrounder"
+    }
+  ],
+  "rosterDemo": true
 };

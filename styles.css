@@ -251,3 +251,46 @@ h1, h2, h3, p { margin-top:0; }
   .section-heading h2 { font-size:32px; }
 }
 @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } .toast { transition:none; } }
+
+
+/* Horizontal wischbarer Demo-Kader – keine Fotos oder Daten realer Kinder. */
+.squad-section { margin:52px 0 51px; }
+.squad-head { display:flex; align-items:flex-end; justify-content:space-between; gap:18px; margin-bottom:22px; }
+.squad-head h2 { font:800 41px/1 var(--font-head); text-transform:uppercase; margin:8px 0 0; }
+.squad-subtitle { font-size:12px; color:#87837c; margin:10px 0 0; }
+.squad-controls { display:flex; align-items:center; gap:8px; }
+.squad-counter { font:850 12px var(--font-body); letter-spacing:.9px; color:#807971; white-space:nowrap; margin-right:8px; }
+.squad-arrow { width:43px; height:43px; display:grid; place-items:center; background:#171719; border:1px solid #171719; border-radius:50%; color:white; font-size:23px; line-height:1; cursor:pointer; transition:background .2s,border-color .2s; }
+.squad-arrow:hover:not(:disabled) { background:#b42b40; border-color:#b42b40; }
+.squad-arrow:disabled { background:#eae6dd; border-color:#eae6dd; color:#aaa39b; cursor:default; }
+.squad-track { display:grid; grid-auto-flow:column; grid-auto-columns:250px; gap:15px; overflow-x:auto; overscroll-behavior-x:contain; scroll-snap-type:x mandatory; scroll-padding:0 0; -webkit-overflow-scrolling:touch; padding:0 0 9px; scrollbar-width:none; }
+.squad-track::-webkit-scrollbar { display:none; }
+.squad-card { scroll-snap-align:start; min-width:0; border-radius:14px; overflow:hidden; background:#fff; border:1px solid #e9e6e1; box-shadow:0 7px 22px rgba(0,0,0,.04); }
+.squad-portrait { background:linear-gradient(145deg,#efe4cd 0%,#d9a74b 72%,#bb2c41 170%); height:248px; display:flex; align-items:flex-end; position:relative; overflow:hidden; }
+.squad-portrait:before { content:""; position:absolute; width:270px; height:270px; border:1px solid rgba(255,255,255,.4); border-radius:50%; left:20px; top:-76px; }
+.squad-portrait:after { content:""; height:5px; width:100%; background:linear-gradient(90deg,var(--red) 0 50%,var(--orange) 50%); position:absolute; bottom:0; left:0; }
+.squad-avatar { width:100%; height:100%; max-height:258px; position:relative; z-index:1; display:block; transform:translateY(8px); }
+.squad-jersey-num { position:absolute; z-index:2; top:15px; left:17px; font:900 30px/1 var(--font-head); color:#161618; }
+.squad-watermark { position:absolute; right:4px; top:2px; font:900 98px/1 var(--font-head); letter-spacing:-3px; color:rgba(255,255,255,.17); pointer-events:none; }
+.squad-card-info { padding:17px 18px 18px; display:flex; flex-direction:column; align-items:flex-start; min-height:112px; }
+.squad-position { font-size:9px; letter-spacing:1.25px; text-transform:uppercase; font-weight:900; border-radius:4px; padding:5px 7px; background:#fcf0cf; color:#8c6016; }
+.squad-card-info strong { font:900 24px/1.15 var(--font-head); text-transform:uppercase; margin:10px 0 5px; }
+.squad-teamline { font-size:8px; font-weight:850; color:#9b9690; letter-spacing:.7px; }
+.squad-bottom { display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-top:10px; }
+.squad-bottom span { font-size:9px; font-weight:850; letter-spacing:1px; color:#8c8780; }
+.squad-demo-label { color:#9f3040 !important; }
+.score-inferred-flag { color:var(--red); font:900 12px var(--font-body); vertical-align:super; }
+.results-note a { color:#90263a; text-decoration:underline; }
+@media(max-width:700px) {
+  .squad-section { margin:38px 0; }
+  .squad-head { align-items:flex-end; margin-bottom:17px; }
+  .squad-head h2 { font-size:35px; }
+  .squad-subtitle { font-size:11px; max-width:210px; line-height:1.45; }
+  .squad-counter { display:none; }
+  .squad-arrow { width:34px; height:34px; font-size:19px; }
+  .squad-controls { gap:5px; }
+  .squad-track { grid-auto-columns:min(66vw,245px); gap:12px; }
+  .squad-portrait { height:237px; }
+  .squad-bottom { align-items:flex-start; flex-direction:column; gap:6px; }
+}
+@media (prefers-reduced-motion:reduce) { .squad-arrow { transition:none; } }

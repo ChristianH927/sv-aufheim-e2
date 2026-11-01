@@ -77,7 +77,7 @@
       return `<article class="result-card" aria-label="${escapeHTML(match.home)} gegen ${escapeHTML(match.away)}: ${match.score ? escapeHTML(match.score) : outcomeLabel[match.outcome]}">
         <div class="result-date"><strong>${day}</strong><span>${monthYear}</span></div>
         <div class="result-names"><strong>${escapeHTML(match.home)}</strong><small>${escapeHTML(match.away)}</small></div>
-        <div class="result-score"><span class="${match.score ? "score-text" : "score-unknown"}">${match.score ? escapeHTML(match.score) : outcomeLabel[match.outcome]}</span><span class="outcome-tag ${match.outcome}">${outcomeLabel[match.outcome]}</span></div>
+        <div class="result-score"><span class="${match.score ? "score-text" : "score-unknown"}">${match.score ? escapeHTML(match.score) + (match.inferred ? '<sup class="score-inferred-flag" title="Aus der Torbilanz berechnet">*</sup>' : "") : outcomeLabel[match.outcome]}</span><span class="outcome-tag ${match.outcome}">${outcomeLabel[match.outcome]}</span></div>
       </article>`;
     }).join("") : '<div class="empty-results">Für diesen Filter sind keine Spiele hinterlegt.</div>';
   };
@@ -97,6 +97,80 @@
   const draws = oldestFirst.filter((match) => match.outcome === "draw").length;
   $("form-copy").textContent = `${wins} Siege, ${draws} Unentschieden. ${oldestFirst.every((match) => match.outcome !== "loss") ? "Noch ungeschlagen." : "Gemeinsam weiter!"}`;
   $("form-rule-fill").style.width = `${Math.round((wins + draws * .5) / Math.max(1, oldestFirst.length) * 100)}%`;
+
+
+  // Die Porträts und Spieler sind bewusst frei erfundene DEMO-Daten.
+  // Nach Freigabe können Namen, Nummern und echte Fotos ersetzt werden.
+  const demoPlayers = Array.isArray(data.players) ? data.players : [];
+  const squadTrack = $("squad-track");
+  const squadPrev = $("squad-prev");
+  const squadNext = $("squad-next");
+  const squadCounter = $("squad-counter");
+  const avatarPalettes = [
+    {skin:"#e7ac83",hair:"#353039",bg:"#ead7b0"},
+    {skin:"#bb7c59",hair:"#191919",bg:"#e8c7b5"},
+    {skin:"#f3c59e",hair:"#8b5330",bg:"#d5d4c5"},
+    {skin:"#d59c73",hair:"#27252b",bg:"#e5ceb0"},
+    {skin:"#b97d5a",hair:"#4a2921",bg:"#e3cab5"},
+    {skin:"#f0bd94",hair:"#aa6f3a",bg:"#e5d8be"}
+  ];
+  const hairShapes = [
+    '<path d="M84 123 Q78 65 125 63 Q171 57 175 120 Q165 93 143 86 Q119 110 90 107 Z"/>',
+    '<path d="M85 122 Q78 67 129 62 Q178 60 174 119 Q167 89 146 89 Q123 96 97 85 Z"/>',
+    '<path d="M85 124 Q81 79 110 64 Q160 46 176 111 Q164 86 148 93 Q116 107 91 102 Z"/>',
+    '<path d="M86 125 Q82 74 120 64 Q167 61 175 112 L166 96 Q144 102 130 91 Q112 106 92 105 Z"/>'
+  ];
+  const demoPortrait = (player, index) => {
+    const p = avatarPalettes[index % avatarPalettes.length];
+    return '<svg class="squad-avatar" viewBox="0 0 260 280" role="img" aria-label="Gezeichnetes Platzhalter-Porträt, kein echtes Foto">' +
+      '<circle cx="130" cy="120" r="101" fill="' + p.bg + '" opacity=".62"/>' +
+      '<circle cx="201" cy="65" r="28" fill="#fff" opacity=".12"/>' +
+      '<path d="M20 280 Q30 210 92 194 L112 188 L148 188 L172 194 Q230 210 240 280Z" fill="#151518"/>' +
+      '<path d="M72 205 L93 195 L118 217 L106 280 L81 280Z" fill="#b5263c"/>' +
+      '<path d="M188 205 L167 195 L142 217 L154 280 L179 280Z" fill="#e8b751"/>' +
+      '<path d="M110 185 L110 159 L150 159 L150 185 Q130 202 110 185Z" fill="' + p.skin + '"/>' +
+      '<ellipse cx="89" cy="132" rx="9" ry="15" fill="' + p.skin + '"/>' +
+      '<ellipse cx="171" cy="132" rx="9" ry="15" fill="' + p.skin + '"/>' +
+      '<ellipse cx="130" cy="127" rx="45" ry="63" fill="' + p.skin + '"/>' +
+      '<g fill="' + p.hair + '">' + hairShapes[index % hairShapes.length] + '</g>' +
+      '<path d="M105 132 Q113 127 121 132 M139 132 Q147 127 155 132" fill="none" stroke="' + p.hair + '" stroke-width="3" stroke-linecap="round"/>' +
+      '<circle cx="114" cy="140" r="2.7" fill="#292426"/><circle cx="146" cy="140" r="2.7" fill="#292426"/>' +
+      '<path d="M130 144 L126 158 Q130 161 134 158" fill="none" stroke="#a97158" stroke-width="2" stroke-linecap="round"/>' +
+      '<path d="M117 167 Q130 177 144 166" fill="none" stroke="#9d604c" stroke-width="2.4" stroke-linecap="round"/>' +
+      '<path d="M110 185 Q130 202 150 185 L143 202 Q130 211 117 202Z" fill="#f5f3ed"/>' +
+      '<text x="130" y="264" font-family="Arial,sans-serif" font-weight="900" font-size="36" text-anchor="middle" fill="#fff">' + Number(player.number) + '</text>' +
+      '<text x="199" y="218" font-family="Arial,sans-serif" font-weight="900" font-size="10" text-anchor="middle" fill="#eee5cd">SGM</text>' +
+      '</svg>';
+  };
+  if (squadTrack && demoPlayers.length) {
+    squadTrack.innerHTML = demoPlayers.map((player,index) =>
+      '<article class="squad-card" aria-label="' + escapeHTML(player.name) + ', Nummer ' + Number(player.number) + ', ' + escapeHTML(player.position) + ', Demo">' +
+        '<div class="squad-portrait">' +
+          '<span class="squad-jersey-num">#' + String(player.number).padStart(2,"0") + '</span>' +
+          '<span class="squad-watermark" aria-hidden="true">E2</span>' +
+          demoPortrait(player,index) +
+        '</div>' +
+        '<div class="squad-card-info"><span class="squad-position">' + escapeHTML(player.position) + '</span><strong>' + escapeHTML(player.name) + '</strong><span class="squad-teamline">SGM AUFHEIM / HOLZSCHWANG</span></div>' +
+      '</article>'
+    ).join("");
+    const cardStep = () => {
+      const card = squadTrack.querySelector(".squad-card");
+      const gap = Number.parseFloat(getComputedStyle(squadTrack).columnGap) || 0;
+      return (card ? card.getBoundingClientRect().width : 245) + gap;
+    };
+    const activeSquadIndex = () => Math.max(0,Math.min(demoPlayers.length-1,Math.round(squadTrack.scrollLeft/cardStep())));
+    const updateSquadControls = () => {
+      const selected = activeSquadIndex();
+      squadCounter.textContent = String(selected+1).padStart(2,"0") + " / " + String(demoPlayers.length).padStart(2,"0");
+      squadPrev.disabled = selected === 0;
+      squadNext.disabled = selected === demoPlayers.length-1;
+    };
+    squadPrev.addEventListener("click", () => squadTrack.scrollTo({left:(activeSquadIndex()-1)*cardStep(),behavior:"smooth"}));
+    squadNext.addEventListener("click", () => squadTrack.scrollTo({left:(activeSquadIndex()+1)*cardStep(),behavior:"smooth"}));
+    squadTrack.addEventListener("scroll",updateSquadControls,{passive:true});
+    window.addEventListener("resize",updateSquadControls,{passive:true});
+    updateSquadControls();
+  }
 
   let toastTimer;
   const toast = (message) => {
