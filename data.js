@@ -180,7 +180,8 @@ window.AUFHEIM_DATA = {
       "position": "Allrounder"
     },
     {
-      "name": "CEP",
+      "name": "Christian",
+      "role": "CEP",
       "title": "Chief Operative Pizzaniolo",
       "image": "cep-portrait.webp",
       "type": "staff"

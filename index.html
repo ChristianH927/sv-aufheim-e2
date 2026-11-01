@@ -8,7 +8,7 @@
     <meta property="og:title" content="SV Aufheim E2 – Team-Dashboard" />
     <meta property="og:description" content="Tabelle, Ergebnisse und nächste Spiele auf einen Blick." />
     <title>SV Aufheim E2 · Team-Dashboard</title>
-    <link rel="stylesheet" href="styles.css?v=20261101b" />
+    <link rel="stylesheet" href="styles.css?v=20261101c" />
     <script>
       // Jede neue Seitenöffnung prüft den zuletzt veröffentlichten Tabellenstand.
       // GitHub Pages und mobile Browser cachen statische Dateien andernfalls
@@ -19,7 +19,7 @@
         const loadApp = () => {
           const appendApp = () => {
             const app = document.createElement("script");
-            app.src = "app.js?v=20261101b";
+            app.src = "app.js?v=20261101c";
             document.head.append(app);
           };
           if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", appendApp, { once: true });
@@ -130,7 +130,7 @@
             </div>
           </div>
           <div class="squad-track" id="squad-track" role="region" aria-label="Spielerporträts – nach links und rechts wischen" tabindex="0"></div>
-          <div class="squad-bottom"><span>↔ AUF DEM HANDY WISCHEN</span><span class="squad-demo-label">SPIELER SIND DEMO · CEP IST ECHT</span></div>
+          <div class="squad-bottom"><span>↔ AUF DEM HANDY WISCHEN</span><span class="squad-demo-label">SPIELER SIND DEMO · CHRISTIAN IST ECHT</span></div>
         </section>
 
         <section class="closing-strip" aria-label="Team-Motto"><img class="closing-ball" src="logo.png" width="44" height="44" alt="" /><div><span class="closing-kicker">SGM AUFHEIM / HOLZSCHWANG · E2</span><strong>Aufheims Zweite, <em>unsere Nummer eins.</em></strong></div><a id="closing-source" href="https://www.fussball.de/" target="_blank" rel="noopener noreferrer">Zu FUSSBALL.DE <span aria-hidden="true">↗</span></a></section>

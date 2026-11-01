@@ -145,12 +145,13 @@
   if (squadTrack && demoPlayers.length) {
     squadTrack.innerHTML = demoPlayers.map((player,index) =>
       player.type === "staff"
-      ? '<article class="squad-card squad-cep-card" aria-label="' + escapeHTML(player.name) + ', ' + escapeHTML(player.title) + '">' +
+      ? '<article class="squad-card squad-cep-card" aria-label="' + escapeHTML(player.name) + ', ' + escapeHTML(player.role) + ', ' + escapeHTML(player.title) + '">' +
           '<div class="squad-portrait squad-cep-portrait">' +
-            '<img class="squad-cep-photo" src="' + escapeHTML(player.image) + '" width="250" height="248" alt="Foto von Chris" loading="lazy" />' +
+            '<img class="squad-cep-photo" src="' + escapeHTML(player.image) + '" width="250" height="248" alt="Foto von Christian" loading="lazy" />' +
           '</div>' +
           '<div class="squad-card-info squad-cep-info">' +
-            '<strong>' + escapeHTML(player.name) + '</strong>' +
+            '<strong class="squad-cep-name">' + escapeHTML(player.name) + '</strong>' +
+            '<span class="squad-cep-role">' + escapeHTML(player.role) + '</span>' +
             '<span class="squad-cep-title">' + escapeHTML(player.title) + '</span>' +
           '</div>' +
         '</article>'
