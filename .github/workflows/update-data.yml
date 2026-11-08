@@ -7,8 +7,17 @@ on:
       - "scripts/update_fussball.py"
       - "scripts/test_update_fussball.py"
   schedule:
-    # UTC; GitHub kann geplante Läufe bei hoher Auslastung verzögern.
-    - cron: "17 6,16,20 * * *"
+    # Alle Angaben in deutscher Ortszeit (Sommer-/Winterzeit automatisch).
+    # Montag–Donnerstag: morgendlicher Abgleich und zwei Prüfungen am Abend.
+    - cron: "17 7,17,21 * * 1-4"
+      timezone: "Europe/Berlin"
+    # Freitag: die bisherigen E2-Ligaspiele begannen 16:15–18:00 Uhr.
+    # Rund um Spielende und Ergebnismeldung daher stündlich prüfen.
+    - cron: "27 7,16,17,18,19,20,21,22 * * 5"
+      timezone: "Europe/Berlin"
+    # Samstag/Sonntag: zweistündlich vom Vormittag bis in den Abend.
+    - cron: "37 9,11,13,15,17,19,21 * * 6,0"
+      timezone: "Europe/Berlin"
   workflow_dispatch:
 
 permissions:
